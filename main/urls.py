@@ -45,4 +45,6 @@ urlpatterns = [
     ),
     path("search/", views.SearchView.as_view(), name="search"),
     path("like/<int:pk>", views.PostLikeAPIView.as_view(), name="like"),
+
+    path("comment/<int:post_pk>", views.CommentView.as_view(), name="comment"),
 ]

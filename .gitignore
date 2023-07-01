@@ -15,3 +15,8 @@ media/posts/*
 
 .DS_Store
 .env
+
+
+db.sqlite3
+
+.DS_Store

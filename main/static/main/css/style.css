@@ -264,6 +264,12 @@ body {
     margin: 0 16px;
 }
 
+.post__comment {
+    font-size: 32px;
+    margin: 0 16px;
+    color: black;
+}
+
 .post__user {
     margin: 0 16px 0 auto;
 }
@@ -298,6 +304,15 @@ body {
 
 .post__response img {
     height: 1rem;
+}
+
+.post__response__user{
+    display: flex;
+    justify-content: start;
+}
+
+.post__response__user img{
+    width: max-content;
 }
 
 .like--active * {

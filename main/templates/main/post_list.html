@@ -45,6 +45,11 @@
                 <div class="post__like">
                     <a class="like{% if post in user.like.all %} like--active{% endif %}" data-pk="{{post.pk}}"><i class="fas fa-heart"></i></a>
                 </div>
+                <div class="post__comment">
+                    <a href="{% url 'comment' post.pk %}" class="comment"><i class="fas fa-comment"></i></a>
+                </div>
+                
+
                 <div class="post__user">
                     <a href="{% url 'profile' post.user.pk %}" class="user">
                         <img src="{{ post.user.icon_url }}">
@@ -68,3 +73,7 @@
 <script src="{% static 'main/js/action-menu.js' %}"></script>
 <script src="{% static 'main/js/like-post.js' %}"></script>
 {% endblock %}
+
+
+
+

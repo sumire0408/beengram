@@ -22,8 +22,10 @@ from .forms import (
     ProfileEditForm,
     SearchForm,
     SignUpForm,
+    CommentForm,
 )
-from .models import Post
+from .models import Comment, Post
+
 
 User = get_user_model()
 
@@ -273,3 +275,16 @@ class PostLikeAPIView(LoginRequiredMixin, View):
         except Post.DoesNotExist:
             result = "DoesNotExist"
         return JsonResponse({"result": result})
+
+class CommentView(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+    success_url = reverse_lazy("home")
+
+    def get_form_kwargs(self):
+        post = get_object_or_404(Post, pk=self.kwargs["post_pk"])
+        self.object = self.model(user=self.request.user, post=post)
+        
+        return super().get_form_kwargs()
+
+        #CreateViewはsave()などの保存のコードを書くひつようがない
